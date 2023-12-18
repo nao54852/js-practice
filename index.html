@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript実践編</title>
+    <link rel="stylesheet" href="./static/CSS/reset.css">
+    <link rel="stylesheet" href="./static/CSS/style.css">
+</head>
+<body>
+    <section class="p-section">
+        <hgroup>
+            <h1 class="p-title">JavaScript実践編</h1>
+            <p class="p-section__text">JavaScript基礎知識編は基本的な知識をインプットしました。
+                <br>実践編では実際に制御構文などを用いて色々な処理を実行してみましょう！
+            </p>
+            <p class="p-section__text">※MDNに慣れるためにも、各セクションにリンクをつけています。ドキュメントを一緒に確認しながら進めましょう。</p>
+        </hgroup>
+        <h2 class="p-section__title-s">目次</h2>
+        <ul>
+            <li><a href="#controlFlow">制御構文とは</a></li>
+            <li>
+                <ul class="p-section__list">
+                    <li><a href="#conditionalBranch">条件分岐</a></li>
+                    <li><a href="#iterations">繰り返し処理（ループ文）</a></li>
+                    <li><a href="#control">その他の制御フロー</a></li>
+                </ul>
+            </li>
+            <li><a href="#arrowFunc">アロー関数</a></li>
+            <li><a href="#callback">コールバック関数</a></li>
+            <li><a href="#iife">即時関数（即時実行関数式）</a></li>
+            <li><a href="#this">thisについて</a></li>
+            <li><a href="#eventListener">イベントリスナー</a></li>
+            <li><a href="#jsDoc">JSDocについて</a></li>
+        </ul>
+    </section>
+    <section class="p-section p-section--gray" id="controlFlow">
+        <hgroup>
+            <h2 class="p-section__title">制御構文とは</h2>
+            <p class="p-section__text">プログラムの流れを制御するために使用されます。
+                <br>制御構文には以下の種類があります。
+            </p>
+        </hgroup>
+        <table>
+            <thead>
+                <tr>
+                    <th>構文</th>
+                    <th>説明</th>
+                    <th>種類</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>条件分岐</td>
+                    <td>ある条件が成立した場合に、特定の処理を実行するために使用されます。</td>
+                    <td>if文、switch文</td>
+                </tr>
+                <tr>
+                    <td>繰り返し処理</td>
+                    <td>ある処理を繰り返し実行するために使用されます。</td>
+                    <td>for文、while文</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 条件分岐 -->
+    <section class="p-section" id="conditionalBranch">
+        <hgroup>
+            <h2 class="p-section__title">条件分岐</h2>
+            <p class="p-section__text">条件分岐文は、ある条件が成立した場合に、特定の処理を実行するために使用されます。
+                <br>以下に代表的な条件分岐文を示します。</p>
+        </hgroup>
+
+        <!-- if文 -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">if文</h3>
+                <p>if文は、指定された条件式の結果がtrueの場合に、特定の処理を実行するために使用されます。</p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/if...else">参考（MDN:if...else）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【記法】</h4>
+                <p class="codepen" data-height="460" data-default-tab="js" data-slug-hash="LYqqOJE" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/LYqqOJE">
+                    Untitled</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="p-section__text">変数「sylvanianFamilies」の値が
+                    <br>「フレア」だったら、コンソールに「ショコラうさぎちゃん」を出力
+                    <br>「ラルフ」だったらコンソールに「くるみリスくん」を出力
+                    <br>「メリンダ」だったらコンソールに「トイプードルちゃん」を出力する。
+                </p>
+                <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="XWOOzoQ" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/XWOOzoQ">
+                    if文（例）</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <div class="p-section__question">
+                    <h4 class="p-section__title-s">【問題】</h4>
+                    <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                        <br>変数「score」の値が
+                        <br>「81~100」の時はコンソールに「大変よくできました」を出力
+                        <br>「51~80」の時はコンソールに「よくできました」を出力
+                        <br>「0~50」の時はコンソールに「もう少し頑張りましょう」を出力するコードを書いてみましょう！
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- switch文 -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">switch文</h3>
+                <p>switch文は、指定された式の値によって分岐する場合に使用されます。</p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/switch">参考（MDN:switch)</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【記法】</h4>
+                <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="BaMMwGo" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/BaMMwGo">
+                    Untitled</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="p-section__text">変数「errorType」の値が
+                    <br>「error」だったら、コンソールに「エラー」を出力
+                    <br>「warning」だったらコンソールに「警告」を出力
+                    <br>「notice」だったらコンソールに「注意」を出力
+                    <br>上記3つの値に一致しなかったらコンソールに「問題が生じました」を出力する。
+                </p>
+                <p class="codepen" data-height="364" data-default-tab="js" data-slug-hash="eYxXYgr" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/eYxXYgr">
+                    switch文（例）</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <div class="p-section__question">
+                    <h4 class="p-section__title-s">【問題】</h4>
+                    <p>「main.js」で以下の問題を解いてみましょう！
+                        <br>変数「season」に季節を表す文字列（例: "春", "夏", "秋", "冬"）が格納されています。
+                        <br>季節に応じて以下のようなメッセージをコンソールに出力するコードを書いてみましょう！
+                        <br>"春"の場合は「花見に行きましょう！」と出力
+                        <br>"夏"の場合は「プールに行きましょう！」と出力
+                        <br>"秋"の場合は「散歩に行きましょう！」と出力
+                        <br>"冬"の場合は「スキーに行きましょう！」と出力
+                        <br>上記のいずれにも該当しない場合は「正しい季節を入力してください。」と出力する。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 条件分岐Tips -->
+        <div class="p-section__wrapper p-section__tips">
+            <hgroup>
+                <h3 class="p-section__title p-section__title--tips">【Tips】if文とswitch文の使い分け</h3>
+                <p>if文とswitch文は、どちらも条件分岐のための制御構文ですが、それぞれの使い分けによって適切な場面が異なります。</p>
+                <p>
+                    <br>if文は、単純な条件分岐を行う場合や、条件式が複雑な場合に使用します。
+                    <br>また、if文は条件式の評価結果が真偽値である必要があります。
+                    <br>条件式が複雑であっても、if文を使えば、複数の条件を組み合わせた条件分岐が可能です。
+                </p>
+                <p>
+                    <br>一方、switch文は、ある1つの式に対して、複数の値によって条件分岐を行う場合に使用します。
+                    <br>switch文では、比較対象の値が一致する場合に限り実行されるため、複数の条件を組み合わせることができません。
+                </p>
+                <p>
+                    <br>したがって、単純な値の比較や複数の値を分岐する必要がない場合はif文を使用し、
+                    <br>比較対象の値が複数ある場合や、複雑な条件分岐が必要な場合はswitch文を使用するのが適切です。
+                </p>
+            </hgroup>
+        </div>
+    </section>
+
+    <!-- 繰り返し処理 -->
+    <section class="p-section p-section--gray" id="iterations">
+        <hgroup>
+            <h2 class="p-section__title">繰り返し処理(ループ文)</h2>
+            <p class="p-section__text">繰り返し処理は、とある処理を指定した回数だけ繰り返し実行するために使用されます。</p>
+        </hgroup>
+
+        <!-- for文 -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">for文</h3>
+                <p>for文は、指定された回数だけ処理を繰り返すループ文で、一般的にカウンター変数を使用してループを制御します。</p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for">参考（MDN:for）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【記法】</h4>
+                <p class="codepen" data-height="440" data-default-tab="js" data-slug-hash="QWYPWXO" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/QWYPWXO">
+                    for文（記法）</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="p-section__text">
+                    0から10までの数字の合計をコンソールに出力する。
+                </p>
+                <p class="codepen" data-height="340" data-default-tab="js" data-slug-hash="KKJYwwo" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/KKJYwwo">
+                    for文（例）</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <div class="p-section__question">
+                    <h4 class="p-section__title-s">【問題】</h4>
+                    <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                        <br>1から50までの数字の中から、偶数のみをコンソールに出力してください。
+                        <br>（for文とif文を使って解いてみましょう）
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- while文 -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">while文</h3>
+                <p>while文は、指定された条件がtrueの場合に繰り返し処理を実行するために使用されます。</p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/while">参考（MDN:while）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【記法】</h4>
+                <p class="codepen" data-height="340" data-default-tab="js" data-slug-hash="rNPbdJJ" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/rNPbdJJ">
+                    while文（記法）</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="p-section__text">
+                    1から10までの数字を順番にコンソールに出力する。
+                </p>
+                <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="XWOQEqq" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/XWOQEqq">
+                    while文(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="p-section__card">
+                <div class="p-section__question">
+                    <h4 class="p-section__title-s">【問題】</h4>
+                    <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                        <br>10から1までの数字を逆順にコンソールに出力してください。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 繰り返し処理のTips -->
+        <div class="p-section__wrapper p-section__tips">
+            <hgroup>
+                <h3 class="p-section__title p-section__title--tips">【Tips】for文とwhile文の使い分け</h3>
+                <p>for文とwhile文は、同じ処理を繰り返すための繰り返し文ですが、使い分けによって適した方を選ぶことができます。</p>
+                <p>
+                    <br>for文は、あらかじめ繰り返し回数がわかっている場合に適しています。
+                    <br>たとえば、配列の要素を順番に処理する場合や、ある数の範囲内で処理を繰り返す場合などです。
+                </p>
+                <p>
+                    <br>一方、while文は、あらかじめ繰り返し回数がわからない場合に適しています。
+                    <br>たとえば、ある条件が成立するまで何度も処理を繰り返す場合などです。
+                </p>
+                <p>
+                    <br>どちらの繰り返し文でも同じ処理ができますが、
+                    <br>使い分けによってコードの可読性を高めたり、パフォーマンスを向上させたりできます。
+                </p>
+            </hgroup>
+        </div>
+    </section>
+
+    <!-- その他の制御フロー -->
+    <section class="p-section" id="control">
+        <hgroup>
+            <h2 class="p-section__title">その他の制御フロー</h2>
+            <p class="p-section__text">条件分岐や繰り返し処理の中で出てきたbreak、returnについて解説します。</p>
+        </hgroup>
+
+        <!-- break -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">break</h3>
+                <p>繰り返し処理の中で特定の条件が満たされた場合や、switch文内で特定のケースが処理された場合に使用されます。
+                    <br>breakがあると、そこで制御構文から抜け出し、次の文に進みます。
+                </p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/break">参考（MDN:break）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="codepen" data-height="360" data-default-tab="js" data-slug-hash="bGzJxZK" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/bGzJxZK">
+                    break(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+        </div>
+
+        <!-- return -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">return</h3>
+                <p>returnは関数内で使用されます。
+                    <br>returnを使用すると、関数の実行を終了し、呼び出し元に値を返します。
+                    <br>関数内で一度実行されると、その関数の実行は即座に終了し、その後のコードは実行されません。
+                </p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/return">参考（MDN:return）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="codepen" data-height="760" data-default-tab="js" data-slug-hash="rNPbqaN" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/rNPbqaN">
+                    return(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            </div>
+        </div>
+
+        <!-- 早期returnのTips -->
+        <div class="p-section__wrapper p-section__tips">
+            <hgroup>
+                <h3 class="p-section__title p-section__title--tips">【Tips】早期returnのメリット</h3>
+                <p>returnの例文の中に、「関数内での早期終了」という言葉が出てきました。
+                    <br>処理の中の早い段階でreturnすることには以下のようなメリットがあります。
+                </p>
+                <dl class="p-section__list">
+                    <dt class="p-section__list-title">コードの可読性向上:</dt>
+                    <dd class="p-section__list-description">条件やエラーチェックなどの特定のケースが早期に処理されるため、コードの意図が明確になります。関数内の処理のフローがわかりやすくなります。</dd>
+                    <dt class="p-section__list-title">パフォーマンス向上:</dt>
+                    <dd class="p-section__list-description">早期returnは不要な処理をスキップするため、パフォーマンスの向上につながります。たとえば、ループ内で特定の条件に合致する要素を見つけた場合、早期にループを終了することで、余分なループを回避できます。</dd>
+                    <dt class="p-section__list-title">バグの早期発見:</dt>
+                    <dd class="p-section__list-description">不正な値や予期しない条件に対するエラーチェックが容易になります。不正な値が渡されたり、特定の条件が満たされなかったりした場合に早期にエラーメッセージを出力することで、バグを早期に発見しやすくなります。</dd>
+                    <dt class="p-section__list-title">ネストの削減:</dt>
+                    <dd class="p-section__list-description">条件やエラーチェックのためのネストを削減できます。ネストが深くなるとコードの可読性が低下する可能性があるため、早期returnを活用することで、よりフラットなコードを実現できます。</dd>
+                </dl>
+            </hgroup>
+        </div>
+    </section>
+
+    <!-- アロー関数 -->
+    <section class="p-section p-section--gray" id="arrowFunc">
+        <hgroup>
+            <h2 class="p-section__title">アロー関数</h2>
+            <p class="p-section__text">JS基礎知識編で関数宣言と関数式について学びましたが、関数の記述方法には「アロー関数」も存在します。
+                <br>アロー関数はES6から導入された新しい関数の書き方です。
+                <br>アロー関数を使うと短く簡潔に記載することができ、コードの可読性が向上します。
+                <br>アロー関数は暗黙的にthisを束縛する性質を持っています。（thisについては後述致します）
+            </p>
+            <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions">参考（MDN:アロー関数式）</a>
+        </hgroup>
+        <div class="p-section__card">
+            <h4 class="p-section__title-s">【記法】</h4>
+            <p class="codepen" data-height="460" data-default-tab="js" data-slug-hash="KKJjmzx" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/n-ogata/pen/KKJjmzx">
+                アロー関数(記法)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+        <div class="p-section__card">
+            <h4 class="p-section__title-s">【例】</h4>
+            <p class="codepen" data-height="540" data-default-tab="js" data-slug-hash="eYxwWRw" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/n-ogata/pen/eYxwWRw">
+                アロー関数(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+        <div class="p-section__card">
+            <div class="p-section__question">
+                <h4 class="p-section__title-s">【問題1】</h4>
+                <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                    <br>引数として受け取った数値を2倍にして返す関数をアロー関数で定義してください。
+                    <br>その後、「5」を引数で渡して関数を実行してみてください。
+                </p>
+            </div>
+        </div>
+        <div class="p-section__card">
+            <div class="p-section__question">
+                <h4 class="p-section__title-s">【問題2】</h4>
+                <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                    <br>引数として受け取った文字列を逆順にして返す関数をアロー関数で定義してください。
+                    <br>その後、「今日はいい天気」を引数で渡して関数を実行してみてください。
+                    <br>（ヒント1）メソッドをいくつか組み合わせる必要があります！
+                    <br>（ヒント2）「.split()」「.reverse()」「.join()」を調べてみましょう！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- コールバック関数 -->
+    <section class="p-section" id="callback">
+        <hgroup>
+            <h2 class="p-section__title">コールバック関数</h2>
+            <p class="p-section__text">コールバック関数は、他の関数の引数として渡されたり、別の関数の内部から呼び出されたりします。
+                <br>一般的に、コールバック関数は非同期な操作やイベント処理に使用されます。
+            </p>
+            <a href="https://developer.mozilla.org/ja/docs/Glossary/Callback_function">参考（MDN:コールバック関数）</a>
+        </hgroup>
+        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="poGXwvo" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/n-ogata/pen/poGXwvo">
+            コンストラクタ</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </section>
+
+    <!-- 即時関数 -->
+    <section class="p-section p-section--gray" id="iife">
+        <hgroup>
+            <h2 class="p-section__title">即時関数</h2>
+            <p class="p-section__text">即時関数は、関数を定義すると同時に即座に実行する方法です。
+                <br>これは変数のスコープを制御し、グローバルスコープを汚染することなくコードを実行するために使用されます。
+                <br>関数を括弧で囲み、その後に即座に実行するための括弧を追加します。
+            </p>
+        </hgroup>
+        <a href="https://developer.mozilla.org/ja/docs/Glossary/IIFE">参考（MDN:IIFE 即時実行関数式）</a>
+        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="PoVrjKL" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/n-ogata/pen/PoVrjKL">
+            即時関数</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </section>
+
+    <!-- thisについて -->
+    <section class="p-section" id="this">
+        <hgroup>
+            <h2 class="p-section__title">thisについて</h2>
+            <p class="p-section__text">
+                JavaScriptにおける「this」は、現在のコンテキスト（文脈）で実行されている関数やメソッドが参照する特殊なキーワードです。
+                <br>「this」が何を示すのかは実行時に動的に決まります。理解するために、以下のポイントを押さえましょう。
+            </p>
+        </hgroup>
+        <dl class="p-section__wrapper p-section__tips">
+            <dt class="p-section__list-title">グローバルスコープにおけるthis</dt>
+            <dd class="p-section__list-description">グローバルスコープ（関数の外側やブロックの外側）では、thisはグローバルオブジェクト（ブラウザではwindowオブジェクト）を参照します。</dd>
+            <dt class="p-section__list-title">関数内でのthis</dt>
+            <dd class="p-section__list-description">関数内でのthisは、その関数がどのように呼び出されたかによって異なります。
+                <ul>
+                    <li class="p-section__list-item">関数が通常の関数として呼び出された場合、thisはグローバルオブジェクトを参照します。</li>
+                    <li class="p-section__list-item">メソッドとしてオブジェクト内で呼び出された場合、thisはそのオブジェクトを参照します。</li>
+                    <li class="p-section__list-item">コンストラクタ関数として使用される場合、thisは新しく作成されるインスタンスを参照します。※コンストラクタについては追々...</li>
+                </ul>
+            </dd>
+            <dt class="p-section__list-title">アロー関数内でのthis</dt>
+            <dd class="p-section__list-description">アロー関数では、thisは宣言時の外側のスコープを参照します。つまり、アロー関数は自身のthisを持たず、その外側のスコープのthisを継承します。</dd>
+        </dl>
+        <p class="codepen" data-height="660" data-default-tab="js" data-slug-hash="KKJjmYj" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/n-ogata/pen/KKJjmYj">
+            this</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </section>
+
+    <!-- イベントリスナーを使って処理を書いてみよう -->
+    <section class="p-section p-section--gray" id="eventListener">
+        <hgroup>
+            <h2 class="p-section__title">イベントリスナー</h2>
+            <p class="p-section__text">基本的な制御構文や関数についての知識をインプットできました。
+                <br>ここでは、DOM操作でよく使用されるaddEventListenerメソッドを使いながら実際に処理を書いてみましょう！
+            </p>
+            <a href="https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener">参考（MDN:addEventListener()メソッド）</a>
+        </hgroup>
+        <div class="p-section__card">
+            <div class="p-section__question">
+                <h4 class="p-section__title-s">【問題1】</h4>
+                <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                    <br>下のボタンをクリックすると、コンソールにメッセージを表示するプログラムを作成してください。
+                </p>
+                <button class="p-section__button" id="triggerButton1">クリックしてね</button>
+            </div>
+        </div>
+        <div class="p-section__card">
+            <div class="p-section__question">
+                <h4 class="p-section__title-s">【問題2】</h4>
+                <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                    <br>マウスが要素の上に乗った時に、要素の背景色を変えるプログラムを作成してください。
+                    <br>また、マウスが要素から離れた時には元の背景色に戻るようにしてください。
+                </p>
+                <div class="p-section__button" id="triggerButton2">ホバーしてね</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JSDocについて -->
+    <section class="p-section" id="jsDoc">
+        <hgroup>
+            <h2 class="p-section__title">JSDocについて</h2>
+            <p class="p-section__text">JavaScriptなどのコードを書くときは、どのような処理が記載されているのか他の人にもわかるようにコメントを残すことがあります。
+                <br>しかしコメントのルールが開発者によってバラバラでは、コードを解読するのに必要な情報の記載がなかったり、コメントそのものがわかりにくい場合も出てきます。
+                <br>JSDocのルールにしたがってコメントを残すことで、他の開発者に必要な情報を的確に残すことができるようになります。
+                <br>JSDocを記載すると、コード入力時にヒントやコード補完が表示されるので、コーディングの助けになりますし、
+                <br>コードの機能やパラメータ、戻り値などの情報が記述されたドキュメントを生成することもできます。
+            </p>
+        </hgroup>
+        <div class="p-section__card">
+            <h4 class="p-section__title-s">【例】</h4>
+            <p class="p-section__text">VS Codeで「/**」を入力するとJSDocを入力できます。
+                <br>すでにある処理の上の行で「/**」を入力すると、記載する必要がある項目が自動的に入力されます。
+                <br>※自動で入力される内容は充分でないことが多いです。自分で追記しましょう。
+                <br>こちらの例以外にも、記載できる項目がありますので<a href="https://ics.media/entry/6789/" target="_blank">こちら</a>を参考にしてください。
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="vYbomoJ" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/n-ogata/pen/vYbomoJ">
+                JSDoc(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            <h3 class="p-section__title-s">解説</h3>
+            <ul>
+                <li class="p-section__list-item">/**と*/で囲まれた部分は、JSDocコメントの開始と終了を示します。</li>
+                <li class="p-section__list-item">@paramタグを使用して、関数の引数を記述します。引数の型を{}で囲み、その後仮引数名、-の後ろに説明を記載しています。引数の個数だけ記載します。</li>
+                <li class="p-section__list-item">@returnsタグを使用して、関数の戻り値を記述します。戻り値の型を{}で囲み、-の後ろに説明を記載しています。</li>
+            </ul>
+        </div>
+        <div class="p-section__card">
+            <div class="p-section__question">
+                <h4 class="p-section__title-s">【問題】</h4>
+                <p class="p-section__text">「main.js」で以下の問題を解いてみましょう！
+                    <br>アロー関数の問題2と、イベントリスナー問題2で記載したコードにJSDocを追加してみましょう。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="./static/JS/main.js"></script>
+</body>
+</html>

@@ -235,7 +235,9 @@
         <div class="p-section__wrapper">
             <hgroup>
                 <h3 class="p-section__title">while文</h3>
-                <p>while文は、指定された条件がtrueの場合に繰り返し処理を実行するために使用されます。</p>
+                <p>while文は、指定された条件がtrueの場合に繰り返し処理を実行するために使用されます。
+                    <br>条件が常にtrue(truthy)の場合、処理が無限に実行されてしまうので注意が必要です。
+                </p>
                 <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/while">参考（MDN:while）</a>
             </hgroup>
             <div class="p-section__card">
@@ -303,6 +305,7 @@
                 <h3 class="p-section__title">break</h3>
                 <p>繰り返し処理の中で特定の条件が満たされた場合や、switch文内で特定のケースが処理された場合に使用されます。
                     <br>breakがあると、そこで制御構文から抜け出し、次の文に進みます。
+                    <br>※ 次の例で、breakとなっているところをreturnと書いてしまって「動かない〜」となるのはあるあるなので気をつけましょう!
                 </p>
                 <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/break">参考（MDN:break）</a>
             </hgroup>
@@ -311,6 +314,27 @@
                 <p class="codepen" data-height="360" data-default-tab="js" data-slug-hash="bGzJxZK" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
                     <span>See the Pen <a href="https://codepen.io/n-ogata/pen/bGzJxZK">
                     break(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+        </div>
+
+        <!-- continue -->
+        <div class="p-section__wrapper">
+            <hgroup>
+                <h3 class="p-section__title">continue</h3>
+                <p>繰り返し処理（たとえばforループやwhileループ）の中で使用され、特定の条件が満たされた場合に、
+                    <br>そのループの現在のイテレーションをスキップして、次のイテレーションに進むために使われます。
+                    <br>ある条件のときに「ループ全体を停止したい」場合はbreak文を使用し、「今のループをスキップして続きからループを実行したい」という場合はcontinue文を使用します。
+                </p>
+                <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/continue">参考（MDN:continue）</a>
+            </hgroup>
+            <div class="p-section__card">
+                <h4 class="p-section__title-s">【例】</h4>
+                <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="qBgeexJ" data-user="n-ogata" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/n-ogata/pen/qBgeexJ">
+                    continue文(例)</a> by nao (<a href="https://codepen.io/n-ogata">@n-ogata</a>)
                     on <a href="https://codepen.io">CodePen</a>.</span>
                 </p>
                 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
@@ -517,6 +541,7 @@
                 <br>JSDocを記載すると、コード入力時にヒントやコード補完が表示されるので、コーディングの助けになりますし、
                 <br>コードの機能やパラメータ、戻り値などの情報が記述されたドキュメントを生成することもできます。
             </p>
+            <a href="https://jsdoc.app/">参考（公式ドキュメント）</a>
         </hgroup>
         <div class="p-section__card">
             <h4 class="p-section__title-s">【例】</h4>
